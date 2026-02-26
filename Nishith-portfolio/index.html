@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Star Portfolio Side Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *{margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
+    body{
+      min-height:100vh;
+      background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000 100%);
+      overflow-x:hidden;
+      color:white;
+    }
+
+    /* Falling Stars */
+    .star{
+      position:absolute;
+      top:-10px;
+      width:2px;
+      height:80px;
+      background: linear-gradient(white, transparent);
+      animation: fall linear infinite;
+      opacity:0.8;
+    }
+
+    @keyframes fall{
+      0%{ transform: translateY(0) translateX(0); opacity:1;}
+      100%{ transform: translateY(100vh) translateX(-100px); opacity:0;}
+    }
+
+    /* Container Flex */
+    .profile-container{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+      padding:50px 10px;
+      gap:40px;
+      z-index:10;
+      position:relative;
+    }
+
+    /* Profile Image */
+    .profile-pic{
+      width:200px;
+      height:200px;
+      border-radius:50%;
+      border:3px solid #00c6ff;
+      object-fit:cover;
+      box-shadow:0 0 30px rgba(0,198,255,0.5);
+    }
+
+    /* Info Card */
+    .info-card{
+      max-width:500px;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.05);
+      border-radius:20px;
+      padding:30px;
+      text-align:left;
+      box-shadow:0 0 30px rgba(255,255,255,0.1);
+    }
+
+    .info-card h1{ font-size:36px; letter-spacing:2px;}
+    .info-card h3{ margin:10px 0; font-weight:normal; color:#ccc;}
+    .info-card p{margin:15px 0; color:#ccc;}
+    .info-card button{
+      padding:10px 25px;
+      border:none;
+      border-radius:30px;
+      background:#00c6ff;
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .info-card button:hover{background:#0072ff;}
+
+    /* Social Icons */
+    .social-icons{
+      margin-top:15px;
+      display:flex;
+      gap:15px;
+    }
+    .social-icons a{
+      color:white;
+      font-size:24px;
+      text-decoration:none;
+      transition:0.3s;
+    }
+    .social-icons a:hover{color:#00c6ff;}
+
+    /* Projects Section */
+    .projects{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:20px;
+      padding:40px 10px;
+    }
+    .project-card{
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+      padding:20px;
+      border-radius:20px;
+      width:250px;
+      box-shadow:0 0 20px rgba(255,255,255,0.1);
+      transition:0.3s;
+    }
+    .project-card:hover{
+      transform: scale(1.05);
+      box-shadow:0 0 40px rgba(0,198,255,0.6);
+    }
+    .project-card h4{ margin-bottom:10px; color:#00c6ff;}
+    .project-card p{ font-size:14px; color:#ccc;}
+
+    /* Responsive */
+    @media(max-width:800px){
+      .profile-container{flex-direction:column;}
+      .info-card{text-align:center;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- Stars -->
+<script>
+for(let i=0;i<40;i++){
+  let star=document.createElement("div");
+  star.classList.add("star");
+  star.style.left=Math.random()*100+"vw";
+  star.style.animationDuration=(2+Math.random()*3)+"s";
+  star.style.animationDelay=Math.random()*5+"s";
+  document.body.appendChild(star);
+}
+</script>
+
+<!-- Profile & Info -->
+<div class="profile-container">
+  <a href="c:\Users\DELL\Downloads\Nishith cv resume.pdf" target="_blank">
+  <button style="padding:10px 20px; background-color:#24292f; color:white; border:none; border-radius:5px; cursor:pointer;">
+    ✅ Check Resume
+  </button>
+</a>
+  <img src="c:\Users\DELL\Downloads\profile.jpg.jpg" alt="Profile Picture" class="profile-pic">
+  <div class="info-card">
+    <h1>Nishithkumar S</h1>
+    <h3>B.Tech IT Student</h3>
+    <p>Summary
+B.Tech Information Technology student with hands-on experience in web development and Java programming. 
+Skilled in HTML, CSS, GitHub, and OOPS concepts. Completed internship in web development and built 
+academic projects. Actively seeking entry-level software or internship opportunities..</p>
+    <button>Contact Me</button>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/nishithkumar-188b8b299" target="_blank">🔗</a>
+      <a href="https://github.com/nishithkumars544-ship-it" target="_blank">🐱</a>
+      <a href="7200620680" target="_blank">📞</a>
+      <a href="nishithkumars544@gmail.com"> 💌</a>
+    </div>
+  </div>
+</div>
+
+<!-- Projects Section -->
+<div class="projects">
+  <div class="project-card">
+    <h4>Smart Home IoT</h4>
+    <p>Automated smart home system using IoT sensors and AI control.</p>
+  </div>
+  <div class="project-card">
+    <h4>Kanyakumari Tourism Portal</h4>
+    <p>Digital tourism platform with booking & local guides.</p>
+  </div>
+  <div class="project-card">
+    <h4>Portfolio Website</h4>
+    <p>Night sky themed portfolio with interactive stars animation.</p>
+    <div class="roadmap">
+ 
+  </div>
+</div>
+<h2>Contact Form</h2>
+<form id="contactForm">
+  <label>Your Name</label>
+  <input type="text" id="name" required>
+
+  <label>Password</label>
+  <input type="password" id="password" required>
+
+  <label>Subject</label>
+  <input type="text" id="subject" required>
+
+  <label>Message</label>
+  <textarea id="message" rows="4" required></textarea>
+
+  <button type="submit">Submit</button>
+</form>
+
+<div id="output"></div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault(); // prevent page refresh
+  const name = document.getElementById("name").value;
+  const password = document.getElementById("password").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+
+  document.getElementById("output").innerHTML = `
+    <strong>Your Name:</strong> ${name} <br>
+    <strong>Password:</strong> ${password} <br>
+    <strong>Subject:</strong> ${subject} <br>
+    <strong>Message:</strong> ${message}
+  `;
+});
+</script>
+
+<div style="background:#ccc;width:300px;border-radius:10px;">
+  <div style="width:50%;background:black;height: 10px;px;border-radius:10px;"></div>
+</div>
+
+
+</body>
+</html>
+</body>
+</html>
